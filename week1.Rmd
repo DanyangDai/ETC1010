@@ -1,0 +1,210 @@
+---
+title: "Week 1 Tutorial"
+subtitle: 
+params:
+  event: "Monash University"
+  date: "2021-07-25"
+author: Danyang Dai
+output:
+  xaringan::moon_reader:
+    css: ["default", "css/my-theme.css", "css/my-fonts.css"]
+    seal: false 
+    lib_dir: libs
+    nature:
+      highlightStyle: solarized-light
+      highlightLanguage: ["r", "yaml", "markdown"]
+      slideNumberFormat: "" 
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "https://platform.twitter.com/widgets.js"
+---
+
+
+```{r,include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+  comment = NA, dpi = 300, echo = FALSE,
+  fig.align = "center", out.width = "60%", cache = FALSE,
+  fig.path = "figs/")
+library(tidyverse)
+library(gganimate)
+library(ggplot2)
+library(dplyr)
+library(sf)
+library(rworldmap)
+library(stplanr)
+library(ggrepel)
+library(emojifont)
+library(fontawesome)
+library(kableExtra)
+library(huxtable)
+library(gridExtra)
+library(icon)
+library(rworldxtra)
+library(knitr)
+knit_global() 
+
+ozcols <- wesanderson::wes_palette("Royal2")[c(2:3)]
+```
+
+
+```{r setup,echo=TRUE, message=FALSE,eval = FALSE}
+```
+class: title-slide, center, bottom
+
+
+# `r rmarkdown::metadata$title`
+
+## `r rmarkdown::metadata$author`
+
+#### `r params$event` &#183; `r params$date`
+
+
+
+---
+
+```{r,include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+  comment = NA, dpi = 300, echo = FALSE,
+  fig.align = "center", out.width = "60%", cache = FALSE,
+  fig.path = "figs/")
+library(tidyverse)
+library(gganimate)
+library(ggplot2)
+library(dplyr)
+library(sf)
+library(rworldmap)
+library(stplanr)
+library(ggrepel)
+library(emojifont)
+library(fontawesome)
+library(kableExtra)
+library(huxtable)
+library(gridExtra)
+library(icon)
+library(rworldxtra)
+library(knitr)
+knit_global() 
+
+ozcols <- wesanderson::wes_palette("Royal2")[c(2:3)]
+```
+
+class: title-slide, center, bottom
+
+
+# `r rmarkdown::metadata$title`
+
+## `r rmarkdown::metadata$author`
+
+#### `r params$event` &#183; `r params$date`
+
+
+---
+
+
+# About Me 
+
+- Graduated from University of Melbourne with Masters in applied econometrics 2020
+- Research Assistant at Monash University 
+- Committee member of R-Ladies Melbourne 
+
+```{r edu_plot,fig.align='center', fig.width=8, fig.height=5,dpi=300, fig.showtext=TRUE,echo=FALSE,message=FALSE, cache=TRUE, eval=TRUE}
+uni <- emojifont::fontawesome('fa-university')
+home <- emojifont::fontawesome('fa-home')
+world <- getMap(resolution = "high")
+world <- world %>% st_as_sf()
+cities <- st_sfc(
+    st_point(c(116.44163,39.925494)),
+    st_point(c(145.138,-37.9083)),
+    st_point(c(144.9614,-37.7963))
+  ) %>%
+  st_sf(name = c('Beijing','Monash University','University of Melbourne')) %>%
+  st_set_crs(4326) %>%
+  mutate(label = c(paste(home, sep = " "), rep(uni,2)))
+routes <- cities %>%
+  points2line() %>%
+  slice(c(2,7,12)) %>%
+  st_segmentize(units::set_units(100, m))
+ggplot(data = world) +
+  geom_sf(color = 'white', lwd = 0.1) +
+  xlab("") + ylab("") +
+  geom_sf_text(
+    data = cities,
+    aes(label = label),
+    size = 3,
+    color = '#009ACD',
+    family = "fontawesome-webfont"
+  ) +
+  geom_sf(
+    data = routes, color = '#009ACD', size = 0.5, alpha = 0.5, linetype = 'dotted'
+  ) +
+  coord_sf(crs = '+proj=robin', xlim = c(0, 45000000), ylim =NULL) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_line(color = 'transparent'),
+     plot.margin = margin(-8, -24, -10, 0, "cm"),
+    # axis.text = element_blank(),
+    # axis.title = element_blank()
+  )
+```
+
+---
+
+# About you 
+
+- No need to turn on your camera for the tutorials 
+- This is an engaging lab tutorial, so I would like that we all get involved during the tutorials by asking questions and sending messages to the chat 
+- [A fun activity to get to know each other better](https://padlet.com/danyangdai/9ajtn24ix7hq8ho2)  
+
+
+---
+
+# House Keeping 
+
+- Please try to use the forum for questions 
+- Please check the forum for similar questions and only post new questions to the forum
+- Please check the announcements for any updates in the course 
+- If you would like to change tutorials, please use Allocate+ to join a tutorial 
+- No tutorials are recorded 
+
+---
+
+# Assignments 
+- Assignment 2 and 3 will be group projects (more information about assignments 2 and 3 shortly)
+- Compulsory team mates evaluation of your group members. These evaluations are for the effort and contributions. Please help out each other in the group and learn and work together as a team. 
+- Use R Markdown to reader the pdf version of the assignment. (R Markdown is the best for doing assignments and generating reproducible repports) 
+
+---
+
+# Check out more about R Markdown from: 
+
+[`r icon::fontawesome$solid$"book-open"` &nbsp;](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) R Markdown Cheat Sheet 
+
+[`r icon::fontawesome$solid$"book"` &nbsp;](https://bookdown.org/yihui/rmarkdown/) R Markdown: The Definitive Guide 
+   
+[`r icon::fontawesome$solid$"question"` &nbsp;](https://stackoverflow.com/questions) Stack Overflow 
+
+[`r icon::fontawesome$brands$"r-project"` &nbsp;](https://community.rstudio.com) RStudio Community 
+
+[`r icon::fontawesome$solid$"users"` &nbsp;](https://rmd-combine-2019.netlify.app) Workshops: Communicating with Data via R Markdown by Emi Tanaka
+
+[`r icon::fontawesome$solid$"users"` &nbsp;](https://dai.netlify.app/talk/r-markdown-a-better-way-of-communicating-with-data/) R Markdown - A Better Way of Communicating with Data
+
+---
+
+class: center, middle
+
+# Questions?
+![](https://media.giphy.com/media/5XRB3Ay93FZw4/giphy.gif)
+
+---
+
+class: center, middle
+
+# Let's get to work! 
+
+![](https://media.giphy.com/media/LHZyixOnHwDDy/giphy.gif)
+
+
