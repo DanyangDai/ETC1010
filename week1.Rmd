@@ -3,7 +3,7 @@ title: "Week 1 Tutorial"
 subtitle: 
 params:
   event: "Monash University"
-  date: "2021-07-25"
+  date: "2022-03-02"
 author: Danyang Dai
 output:
   xaringan::moon_reader:
@@ -40,7 +40,7 @@ library(fontawesome)
 library(kableExtra)
 library(huxtable)
 library(gridExtra)
-library(icon)
+library(icons)
 library(rworldxtra)
 library(knitr)
 knit_global() 
@@ -83,9 +83,10 @@ library(fontawesome)
 library(kableExtra)
 library(huxtable)
 library(gridExtra)
-library(icon)
+library(icons)
 library(rworldxtra)
 library(knitr)
+library(lwgeom)
 knit_global() 
 
 ozcols <- wesanderson::wes_palette("Royal2")[c(2:3)]
@@ -106,11 +107,11 @@ class: title-slide, center, bottom
 
 # About Me 
 
-- Graduated from University of Melbourne with Masters in applied econometrics 2020
-- Research Assistant at Monash University 
-- Committee member of R-Ladies Melbourne 
+- Masters of Applied Econometrics, The University of Melbourne 
 
-```{r edu_plot,fig.align='center', fig.width=8, fig.height=5,dpi=300, fig.showtext=TRUE,echo=FALSE,message=FALSE, cache=TRUE, eval=TRUE}
+- Bachelor of Commerce, Monash University 
+
+```{r edu_plot,fig.align='center', fig.width=8, fig.height=5,dpi=300, fig.showtext=TRUE,echo=FALSE,message=FALSE,eval=TRUE,catch = TRUE}
 uni <- emojifont::fontawesome('fa-university')
 home <- emojifont::fontawesome('fa-home')
 world <- getMap(resolution = "high")
@@ -150,13 +151,33 @@ ggplot(data = world) +
   )
 ```
 
+
+---
+# Working experience 
+
+- Research Assistant at Econometrics and Business Statistics.
+  - Developing [Introduction to R short course](https://learnr.numbat.space)
+  - Investigating R package downloads [cranscrub](https://github.com/numbats/cranscrub)
+  
+- Research Assistant at School of Public Health and Preventive Medience 
+  - [CYCLED Study](https://www.monash.edu/medicine/cycled-study)
+  
+- Teaching Associate 
+  - Data visualisation (Summer course)
+  - Statistical Thinking
+  - Introductory Econometrics 
+  
+- R-Ladies Melburne Committee member 
+
 ---
 
 # About you 
 
-- No need to turn on your camera for the tutorials 
-- This is an engaging lab tutorial, so I would like that we all get involved during the tutorials by asking questions and sending messages to the chat 
-- [A fun activity to get to know each other better](https://padlet.com/danyangdai/9ajtn24ix7hq8ho2)  
+- What do you study?
+
+- Why do you want to learn R?
+
+- What are you most excited about R?  
 
 
 ---
@@ -164,33 +185,28 @@ ggplot(data = world) +
 # House Keeping 
 
 - Please try to use the forum for questions 
+  - Before you post your question, check out [Chapter 3: Troubleshooting and asking for help](https://learnr.numbat.space/chapter3)
 - Please check the forum for similar questions and only post new questions to the forum
 - Please check the announcements for any updates in the course 
-- If you would like to change tutorials, please use Allocate+ to join a tutorial 
-- No tutorials are recorded 
+- If you would like to change tutorials, please use Allocate+ to join a tutorial
+- My contact infor: danyang.dai@monash.edu
 
----
-
-# Assignments 
-- Assignment 2 and 3 will be group projects (more information about assignments 2 and 3 shortly)
-- Compulsory team mates evaluation of your group members. These evaluations are for the effort and contributions. Please help out each other in the group and learn and work together as a team. 
-- Use R Markdown to reader the pdf version of the assignment. (R Markdown is the best for doing assignments and generating reproducible repports) 
 
 ---
 
 # Check out more about R Markdown from: 
 
-[`r icon::fontawesome$solid$"book-open"` &nbsp;](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) R Markdown Cheat Sheet 
+[`r icons::fontawesome$solid$"book-open"` &nbsp;](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) R Markdown Cheat Sheet 
 
-[`r icon::fontawesome$solid$"book"` &nbsp;](https://bookdown.org/yihui/rmarkdown/) R Markdown: The Definitive Guide 
+[`r icons::fontawesome$solid$"book"` &nbsp;](https://bookdown.org/yihui/rmarkdown/) R Markdown: The Definitive Guide 
    
-[`r icon::fontawesome$solid$"question"` &nbsp;](https://stackoverflow.com/questions) Stack Overflow 
+[`r icons::fontawesome$solid$"question"` &nbsp;](https://stackoverflow.com/questions) Stack Overflow 
 
-[`r icon::fontawesome$brands$"r-project"` &nbsp;](https://community.rstudio.com) RStudio Community 
+[`r icons::fontawesome$brands$"r-project"` &nbsp;](https://community.rstudio.com) RStudio Community 
 
-[`r icon::fontawesome$solid$"users"` &nbsp;](https://rmd-combine-2019.netlify.app) Workshops: Communicating with Data via R Markdown by Emi Tanaka
+[`r icons::fontawesome$solid$"users"` &nbsp;](https://rmd-combine-2019.netlify.app) Workshops: Communicating with Data via R Markdown by Emi Tanaka
 
-[`r icon::fontawesome$solid$"users"` &nbsp;](https://dai.netlify.app/talk/r-markdown-a-better-way-of-communicating-with-data/) R Markdown - A Better Way of Communicating with Data
+[`r icons::fontawesome$solid$"users"` &nbsp;](https://dai.netlify.app/talk/r-markdown-a-better-way-of-communicating-with-data/) R Markdown - A Better Way of Communicating with Data
 
 ---
 
