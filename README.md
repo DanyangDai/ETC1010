@@ -1,6 +1,7 @@
-ETC2420 Statistical Thinking 
+ETC1010
 ================
-25/07/2021
+02/03/2022
+
 
 Week 1 slides are accessible in this website
-<https://danyangdai.github.io/ETC2420/#1>.
+<https://danyangdai.github.io/ETC1010/>.
