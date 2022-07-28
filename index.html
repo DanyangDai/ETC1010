@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Week 1 Tutorial</title>
+    <title>ETC2420   Statistical Thinking</title>
     <meta charset="utf-8" />
     <meta name="author" content="Danyang Dai" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -18,14 +18,16 @@
 
 
 
-class: title-slide, center, bottom
+class: title-slide, center, right
 
 
-# Week 1 Tutorial
+# ETC2420 &lt;br&gt;  Statistical Thinking
 
-## Danyang Dai
+## Week 1 &lt;br&gt; Getting start with R and RStudio
 
-#### Monash University &amp;#183; 2022-03-02
+#### Danyang Dai
+
+#### Monash University &amp;#183; 2022-08-29
 
 
 
@@ -36,11 +38,11 @@ class: title-slide, center, bottom
 class: title-slide, center, bottom
 
 
-# Week 1 Tutorial
+# ETC2420 &lt;br&gt;  Statistical Thinking
 
 ## Danyang Dai
 
-#### Monash University &amp;#183; 2022-03-02
+#### Monash University &amp;#183; 2022-08-29
 
 
 ---
@@ -52,25 +54,17 @@ class: title-slide, center, bottom
 
 - Bachelor of Commerce, Monash University 
 
-&lt;img src="figs/edu_plot-1.png" width="60%" style="display: block; margin: auto;" /&gt;
-
-
----
-# Working experience 
-
-- Research Assistant at Econometrics and Business Statistics.
+- Research Assistant Monash: 
   - Developing [Introduction to R short course](https://learnr.numbat.space)
-  - Investigating R package downloads [cranscrub](https://github.com/numbats/cranscrub)
+  - Investigating R package downloads - EBS [cranscrub](https://github.com/numbats/cranscrub) - EBS
+  - [CYCLED Study](https://www.monash.edu/medicine/cycled-study) - Sustainable Mobility and Safety Research Group
   
-- Research Assistant at School of Public Health and Preventive Medience 
-  - [CYCLED Study](https://www.monash.edu/medicine/cycled-study)
+- Teaching Associate at Monash 
   
-- Teaching Associate 
-  - Data visualisation (Summer course)
-  - Statistical Thinking
-  - Introductory Econometrics 
+- Data scientist at The University of Queensland 
+  - Omicron COVID study 
   
-- R-Ladies Melburne Committee member 
+- VP of R-Ladies Melbourne  
 
 ---
 
@@ -78,9 +72,9 @@ class: title-slide, center, bottom
 
 - What do you study?
 
-- Why do you want to learn R?
+- Have you used R before? 
 
-- What are you most excited about R?  
+- What functions or tips you find most helpful that you want to share with others?
 
 
 ---
@@ -178,6 +172,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
