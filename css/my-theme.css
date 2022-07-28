@@ -175,8 +175,8 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
 
 .title-slide {
   background-image: url(../images/title.png);
-  background-position: top;
-  background-size: 100%;
+  background-position: left;
+  background-size: 50%;
   background-color: #FFEAED;
 }
 
@@ -198,7 +198,7 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
   color: #fc838c;
   text-shadow: none;
   text-transform: uppercase;
-  margin-bottom: 0px !important;
+  margin-bottom: -5px !important;
 }
 
 .title-slide h4 {

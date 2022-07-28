@@ -1,9 +1,9 @@
 ---
-title: "Week 1 Tutorial"
-subtitle: 
+title: "ETC2420 <br>  Statistical Thinking"
+subtitle: "Week 1 <br> Getting start with R and RStudio"
 params:
   event: "Monash University"
-  date: "2022-03-02"
+  date: "2022-08-29"
 author: Danyang Dai
 output:
   xaringan::moon_reader:
@@ -31,10 +31,10 @@ library(tidyverse)
 library(gganimate)
 library(ggplot2)
 library(dplyr)
-library(sf)
-library(rworldmap)
-library(stplanr)
-library(ggrepel)
+#library(sf)
+# library(rworldmap)
+# library(stplanr)
+# library(ggrepel)
 library(emojifont)
 library(fontawesome)
 library(kableExtra)
@@ -51,12 +51,14 @@ ozcols <- wesanderson::wes_palette("Royal2")[c(2:3)]
 
 ```{r setup,echo=TRUE, message=FALSE,eval = FALSE}
 ```
-class: title-slide, center, bottom
+class: title-slide, center, right
 
 
 # `r rmarkdown::metadata$title`
 
-## `r rmarkdown::metadata$author`
+## `r rmarkdown::metadata$subtitle`
+
+#### `r rmarkdown::metadata$author`
 
 #### `r params$event` &#183; `r params$date`
 
@@ -74,10 +76,10 @@ library(tidyverse)
 library(gganimate)
 library(ggplot2)
 library(dplyr)
-library(sf)
-library(rworldmap)
-library(stplanr)
-library(ggrepel)
+# library(sf)
+# library(rworldmap)
+# library(stplanr)
+# library(ggrepel)
 library(emojifont)
 library(fontawesome)
 library(kableExtra)
@@ -86,7 +88,7 @@ library(gridExtra)
 library(icons)
 library(rworldxtra)
 library(knitr)
-library(lwgeom)
+#library(lwgeom)
 knit_global() 
 
 ozcols <- wesanderson::wes_palette("Royal2")[c(2:3)]
@@ -111,63 +113,17 @@ class: title-slide, center, bottom
 
 - Bachelor of Commerce, Monash University 
 
-```{r edu_plot,fig.align='center', fig.width=8, fig.height=5,dpi=300, fig.showtext=TRUE,echo=FALSE,message=FALSE,eval=TRUE,catch = TRUE}
-uni <- emojifont::fontawesome('fa-university')
-home <- emojifont::fontawesome('fa-home')
-world <- getMap(resolution = "high")
-world <- world %>% st_as_sf()
-cities <- st_sfc(
-    st_point(c(116.44163,39.925494)),
-    st_point(c(145.138,-37.9083)),
-    st_point(c(144.9614,-37.7963))
-  ) %>%
-  st_sf(name = c('Beijing','Monash University','University of Melbourne')) %>%
-  st_set_crs(4326) %>%
-  mutate(label = c(paste(home, sep = " "), rep(uni,2)))
-routes <- cities %>%
-  points2line() %>%
-  slice(c(2,7,12)) %>%
-  st_segmentize(units::set_units(100, m))
-ggplot(data = world) +
-  geom_sf(color = 'white', lwd = 0.1) +
-  xlab("") + ylab("") +
-  geom_sf_text(
-    data = cities,
-    aes(label = label),
-    size = 3,
-    color = '#009ACD',
-    family = "fontawesome-webfont"
-  ) +
-  geom_sf(
-    data = routes, color = '#009ACD', size = 0.5, alpha = 0.5, linetype = 'dotted'
-  ) +
-  coord_sf(crs = '+proj=robin', xlim = c(0, 45000000), ylim =NULL) +
-  theme_minimal() +
-  theme(
-    panel.grid = element_line(color = 'transparent'),
-     plot.margin = margin(-8, -24, -10, 0, "cm"),
-    # axis.text = element_blank(),
-    # axis.title = element_blank()
-  )
-```
-
-
----
-# Working experience 
-
-- Research Assistant at Econometrics and Business Statistics.
+- Research Assistant Monash: 
   - Developing [Introduction to R short course](https://learnr.numbat.space)
-  - Investigating R package downloads [cranscrub](https://github.com/numbats/cranscrub)
+  - Investigating R package downloads - EBS [cranscrub](https://github.com/numbats/cranscrub) - EBS
+  - [CYCLED Study](https://www.monash.edu/medicine/cycled-study) - Sustainable Mobility and Safety Research Group
   
-- Research Assistant at School of Public Health and Preventive Medience 
-  - [CYCLED Study](https://www.monash.edu/medicine/cycled-study)
+- Teaching Associate at Monash 
   
-- Teaching Associate 
-  - Data visualisation (Summer course)
-  - Statistical Thinking
-  - Introductory Econometrics 
+- Data scientist at The University of Queensland 
+  - Omicron COVID study 
   
-- R-Ladies Melburne Committee member 
+- VP of R-Ladies Melbourne  
 
 ---
 
@@ -175,9 +131,9 @@ ggplot(data = world) +
 
 - What do you study?
 
-- Why do you want to learn R?
+- Have you used R before? 
 
-- What are you most excited about R?  
+- What functions or tips you find most helpful that you want to share with others?
 
 
 ---
